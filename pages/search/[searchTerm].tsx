@@ -11,6 +11,7 @@ import VideoCard from '../../components/VideoCard';
 import useAuthStore from '../../store/authStore';
 import { BASE_URL } from '../../utils';
 import { IUser, Video } from '../../types';
+import SEO from '../../components/SEO';
 
 const Search = ({ videos }: { videos: Video[] }) => {
   const [isAccounts, setIsAccounts] = useState(false);
@@ -25,9 +26,7 @@ const Search = ({ videos }: { videos: Video[] }) => {
   
   return (
     <div className='w-full'>
-      <Head>
-        <title>{searchTerm}</title>
-      </Head>
+      <SEO Title={searchTerm} />
       <div className='flex gap-10 mb-10 border-b-2 border-gray-200 md:fixed z-50 bg-white w-full'>
         <p onClick={() => setIsAccounts(true)} className={`text-xl  font-semibold cursor-pointer ${accounts} mt-2`}>
           Accounts
