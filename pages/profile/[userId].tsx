@@ -40,7 +40,10 @@ const Profile = ({ data }: IProps) => {
 
   return (
     <div className='w-full'>
-      <SEO Title={`${user.userName} Profile`} />
+      <Head>
+        <title>{user.userName} Profile | Tiktik</title>
+      </Head>
+      <SEO />
       <div className='flex gap-6 md:gap-10 mb-4 bg-white w-full'>
         <div className='w-16 h-16 md:w-32 md:h-32'>
           <Image

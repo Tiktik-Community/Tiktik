@@ -1,10 +1,9 @@
 import React from "react";
 import Head from "next/head";
 
-const SEO = (Title: any) => {
+const SEO = () => {
   return (
     <Head>
-      <title>{Title} | Tiktik</title>
       <link rel="icon" href="https://i.imgur.com/XuODa9Q.png" />
       <meta name="description" content="A Network for Coders" />
 

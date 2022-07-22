@@ -15,7 +15,10 @@ interface IProps {
 const Home = ({ videos }: IProps) => {
   return (
     <div className='flex flex-col gap-10 videos h-full'>
-      <SEO Title="Home" />
+      <Head>
+        <title>Home | Tiktik</title>
+      </Head>
+      <SEO />
       {videos.length 
         ? videos?.map((video: Video) => (
           <VideoCard post={video} isShowingOnHome key={video._id} />
