@@ -12,7 +12,7 @@ const About = () => {
             layout="responsive"
           />
         </div>
-        <h1 className="text-4xl font-semibold">Tiktik</h1>
+        <h1 className="text-4xl font-semibold text-center">Tiktik</h1>
         <p className="text-center">
           Tiktik is A Network for Coders to share his projects as a video
         </p>
