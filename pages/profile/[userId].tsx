@@ -8,6 +8,7 @@ import VideoCard from '../../components/VideoCard';
 import NoResults from '../../components/NoResults';
 import { IUser, Video } from '../../types';
 import { BASE_URL } from '../../utils';
+import SEO from '../../components/SEO';
 
 interface IProps {
   data: {
@@ -39,9 +40,7 @@ const Profile = ({ data }: IProps) => {
 
   return (
     <div className='w-full'>
-      <Head>
-        <title>{user.userName} Profile</title>
-      </Head>
+      <SEO Title={`${user.userName} Profile`} />
       <div className='flex gap-6 md:gap-10 mb-4 bg-white w-full'>
         <div className='w-16 h-16 md:w-32 md:h-32'>
           <Image
