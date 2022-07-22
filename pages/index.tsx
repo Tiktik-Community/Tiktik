@@ -15,7 +15,7 @@ interface IProps {
 const Home = ({ videos }: IProps) => {
   return (
     <div className='flex flex-col gap-10 videos h-full'>
-      <SEO Title="Home" Desc="Tiktik" />
+      <SEO Title="Home" />
       {videos.length 
         ? videos?.map((video: Video) => (
           <VideoCard post={video} isShowingOnHome key={video._id} />
