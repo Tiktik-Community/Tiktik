@@ -34,4 +34,5 @@ export interface IUser {
   _type: string;
   userName: string;
   image: string;
+  followers: number;
 }
