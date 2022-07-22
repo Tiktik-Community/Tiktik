@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-const SEO = (Title: string, Desc: string) => {
+const SEO = (Title: any, Desc: any) => {
   return (
     <Head>
       <title>{Title} | Tiktik</title>
