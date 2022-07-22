@@ -14,6 +14,7 @@ import LikeButton from '../../components/LikeButton';
 import useAuthStore from '../../store/authStore';
 import { Video } from '../../types';
 import axios from 'axios';
+import SEO from '../../components/SEO';
 
 interface IProps {
   postDetails: Video;
@@ -78,9 +79,7 @@ const Detail = ({ postDetails }: IProps) => {
 
   return (
     <>
-      <Head>
-        <title>{userProfile.UserName}'s Video</title>
-      </Head>
+      <SEO Title={`${userProfile.userName}'s Video`} />
       {post && (
         <div className='flex w-full absolute left-0 top-0 bg-white flex-wrap lg:flex-nowrap'>
           <div className='relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-center bg-blurred-img bg-no-repeat bg-cover bg-center'>
