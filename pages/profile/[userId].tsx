@@ -62,6 +62,7 @@ const Profile = ({ data }: IProps) => {
             <GoVerified className='text-blue-400 md:text-xl text-md' />
           </div>
           <p className='text-sm font-medium'> {user.userName}</p>
+          <p className='text-sm font-medium'>Followers <span>{user.followers}</span></p>
         </div>
       </div>
       <div>
