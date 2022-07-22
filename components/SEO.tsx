@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-const SEO = (Title: any, Desc: any) => {
+const SEO = (Title: any) => {
   return (
     <Head>
       <title>{Title} | Tiktik</title>
@@ -9,7 +9,7 @@ const SEO = (Title: any, Desc: any) => {
       <meta name="description" content="A Network for Coders" />
 
       <meta itemProp="name" content="Tiktik" />
-      <meta itemProp="description" content={`${Desc} | A Network for Coders`} />
+      <meta itemProp="description" content="A Network for Coders" />
       <meta itemProp="image" content="https://i.imgur.com/XuODa9Q.png" />
 
       <meta property="og:url" content="https://tiktik-programming.vercel.app" />
@@ -22,7 +22,7 @@ const SEO = (Title: any, Desc: any) => {
       <meta name="twitter:title" content="Tiktik" />
       <meta
         name="twitter:description"
-        content={`${Desc} | A Network for Coders`}
+        content="A Network for Coders"
       />
       <meta name="twitter:image" content="https://i.imgur.com/XuODa9Q.png" />
     </Head>
