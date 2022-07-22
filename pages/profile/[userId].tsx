@@ -39,18 +39,6 @@ const Profile = ({ data }: IProps) => {
     fetchVideos();
   }, [showUserVideos, userLikedVideos, userVideos]);
 
-  const handleFollow = async () => {
-
-      const doc = {
-        _type: "user",
-        followers
-      };
-
-      setFollowers(followers + 1);
-
-      await axios.post(`${BASE_URL}/api/profile`, doc);
-  };
-
   return (
     <div className="w-full">
       <Head>
@@ -75,10 +63,6 @@ const Profile = ({ data }: IProps) => {
             <GoVerified className="text-blue-400 md:text-xl text-md" />
           </div>
           <p className="text-sm font-medium"> {user.userName}</p>
-          <p className="text-sm font-medium">
-            Followers <span>{followers}</span>
-          </p>
-          <button onClick={handleFollow}>Follow</button>
         </div>
       </div>
       <div>
