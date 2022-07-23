@@ -1,13 +1,15 @@
 import React from "react";
 import Image from "next/image";
 
+import Icon from '../utils/icon.png'
+
 const About = () => {
   return (
     <>
       <div className="flex flex-col gap-10 h-full">
         <div className="w-full">
           <Image
-            src="https://i.imgur.com/XuODa9Q.png"
+            src={Icon}
             alt="Icon"
             layout="responsive"
           />
