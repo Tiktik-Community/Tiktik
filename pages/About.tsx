@@ -7,7 +7,7 @@ const About = () => {
   return (
     <>
       <div className="flex flex-col gap-10 h-full">
-        <div className="w-full">
+        <div className="w-[300px] flex align-center justify-center">
           <Image
             src={Icon}
             alt="Icon"
