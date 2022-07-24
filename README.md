@@ -1,4 +1,4 @@
-![](./utils/tiktik-logo.png)
+![](./utils/icon.png)
 
 <h1 align="center">Tiktik</h1>
 
