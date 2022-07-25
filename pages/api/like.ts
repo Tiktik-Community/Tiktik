@@ -8,7 +8,7 @@ export default async function handler(req: NextApiRequest,res: NextApiResponse) 
     const { userId, postId, like } = req.body;
 
     const data = 
-    like ? await client
+    like === true ? await client
       .patch(postId)
       .setIfMissing({ likes: [] })
       .insert('after', 'likes[-1]', [
