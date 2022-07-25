@@ -11,6 +11,7 @@ import { Video } from "../types";
 import axios from "axios";
 import { BASE_URL } from "../utils";
 import LikeButton from "./LikeButton";
+import useAuthStore from '../store/authStore';
 
 interface IProps {
   post: Video;
@@ -26,6 +27,7 @@ const VideoCard: NextPage<IProps> = (
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const [postDetails, setPostDetails] = useState(post);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { userProfile }: any = useAuthStore();
 
   const onVideoPress = () => {
     if (playing) {
@@ -44,12 +46,14 @@ const VideoCard: NextPage<IProps> = (
   }, [isVideoMuted]);
 
   const handleLike = async (like: boolean) => {
+    if (userProfile) {
     const res = await axios.put(`${BASE_URL}/api/like`, {
       userId: postedBy._id,
       postId: _id,
       like,
     });
     setPostDetails({ ...postDetails, likes: res.data.likes });
+  }
   };
 
   if (!isShowingOnHome) {
@@ -151,12 +155,16 @@ const VideoCard: NextPage<IProps> = (
               )}
             </div>
           )}
-          <LikeButton
-            likes={post.likes}
-            flex="flex"
-            handleLike={() => handleLike(true)}
-            handleDislike={() => handleLike(false)}
-          />
+          <div className="mt-10 px-10">
+            {userProfile && (
+              <LikeButton
+                likes={postDetails.likes}
+                flex="flex"
+                handleLike={() => handleLike(true)}
+                handleDislike={() => handleLike(false)}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
