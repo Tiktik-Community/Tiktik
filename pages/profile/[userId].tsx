@@ -63,8 +63,10 @@ const Profile = ({ data }: IProps) => {
             <GoVerified className="text-blue-400 md:text-xl text-md" />
           </div>
           <p className="text-sm font-medium"> {user.userName} {user.userName === "Tiktik Community" ? (
+            <span className="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-400 text-white rounded">Admin</span>
+          ): user.userName === "Mohamed Ehab" ? (
             <span className="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-700 text-white rounded">Owner</span>
-          ): null}</p>
+          )}</p>
         </div>
       </div>
       <div>
