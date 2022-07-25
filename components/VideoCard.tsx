@@ -6,19 +6,26 @@ import { HiVolumeUp, HiVolumeOff } from 'react-icons/hi';
 import { BsFillPlayFill, BsFillPauseFill } from 'react-icons/bs';
 import { GoVerified } from 'react-icons/go';
 import { BsPlay } from 'react-icons/bs';
+import LikeButton from "./LikeButton";
+import { BASE_URL } from '../utils';
 
 import { Video } from './../types';
+import useAuthStore from '../store/authStore';
+import axios from "axios";
 
 interface IProps {
   post: Video;
   isShowingOnHome?: boolean;
+  postDetails: Video;
 }
 
-const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, likes }, isShowingOnHome }) => {
+const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, likes }, isShowingOnHome }, { postDetails }: IProps) => {
   const [playing, setPlaying] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [post, setPost] = useState(postDetails);
+  const { userProfile }: any = useAuthStore();
 
   const onVideoPress = () => {
     if (playing) {
@@ -27,6 +34,17 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
     } else {
       videoRef?.current?.play();
       setPlaying(true);
+    }
+  };
+
+  const handleLike = async (like: boolean) => {
+    if (userProfile) {
+      const res = await axios.put(`${BASE_URL}/api/like`, {
+        userId: userProfile._id,
+        postId: post._id,
+        like,
+      });
+      setPost({ ...post, likes: res.data.likes });
     }
   };
 
@@ -135,6 +153,14 @@ const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, li
               )}
             </div>
           )}
+          <div className='mt-10 px-10'>
+                {userProfile && <LikeButton
+                  likes={post.likes}
+                  flex='flex'
+                  handleLike={() => handleLike(true)}
+                  handleDislike={() => handleLike(false)}
+                />}
+              </div>
         </div>
       </div>
     </div>
