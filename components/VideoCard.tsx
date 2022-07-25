@@ -52,7 +52,6 @@ const VideoCard: NextPage<IProps> = (
       postId: _id,
       like,
     });
-    setPostDetails({ ...postDetails, likes: res.data.likes });
   }
   };
 
@@ -158,7 +157,7 @@ const VideoCard: NextPage<IProps> = (
           <div className="mt-10 px-10">
             {userProfile && (
               <LikeButton
-                likes={postDetails.likes}
+                likes={likes}
                 flex="flex"
                 handleLike={() => handleLike(true)}
                 handleDislike={() => handleLike(false)}
