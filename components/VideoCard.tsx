@@ -16,15 +16,14 @@ import axios from "axios";
 interface IProps {
   post: Video;
   isShowingOnHome?: boolean;
-  postDetails: Video;
 }
 
-const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, likes }, isShowingOnHome }, { postDetails }: IProps) => {
+const VideoCard: NextPage<IProps> = ({ post: { caption, postedBy, video, _id, likes }, isShowingOnHome }) => {
   const [playing, setPlaying] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [post, setPost] = useState(postDetails);
+  const [post, setPost] = useState(post);
   const { userProfile }: any = useAuthStore();
 
   const onVideoPress = () => {
