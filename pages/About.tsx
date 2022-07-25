@@ -1,11 +1,17 @@
 import React from "react";
 import Image from "next/image";
+import Head from 'next/head';
 
+import SEO from '../components/SEO';
 import Icon from '../utils/icon.png'
 
 const About = () => {
   return (
     <>
+      <SEO />
+      <Head>
+        <title>About US | Tiktik</title>
+      </Head>
       <div className="flex flex-col gap-10 h-full">
         <div>
           <Image
