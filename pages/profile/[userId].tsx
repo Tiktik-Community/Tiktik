@@ -66,7 +66,7 @@ const Profile = ({ data }: IProps) => {
             <span className="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-400 text-white rounded">Admin</span>
           ): user.userName === "Mohamed Ehab" ? (
             <span className="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-700 text-white rounded">Owner</span>
-          )}</p>
+          ) : null}</p>
         </div>
       </div>
       <div>
