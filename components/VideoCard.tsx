@@ -154,6 +154,7 @@ const VideoCard: NextPage<IProps> = (
               )}
             </div>
           )}
+        </div>
           <div className="mt-10 px-10">
             {userProfile && (
               <LikeButton
@@ -164,7 +165,6 @@ const VideoCard: NextPage<IProps> = (
               />
             )}
           </div>
-        </div>
       </div>
     </div>
   );
